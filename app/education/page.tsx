@@ -10,13 +10,13 @@ export default function Education() {
       className="container"
       sx={{
         backgroundColor: "#ffe6f2", // light pink
-        // padding: 4,
-        // borderRadius: 3,
+        padding: 4,
+        borderRadius: 3,
       }}
     >
       <Typography
         variant="h4"
-        sx={{ color: "black", fontWeight: 700, mb: 2 }}
+        sx={{ color: "#a83269", fontWeight: 700, mb: 2 }}
       >
         Education Details
       </Typography>

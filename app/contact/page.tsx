@@ -1,85 +1,154 @@
 // "use client";
-
 // import { Container, Typography, Box, Link } from "@mui/material";
 
 // export default function Contact() {
 //   return (
-//     <Container
-//       maxWidth="md"
-//       sx={{
-//         // backgroundColor: "#ffe6f2",
-//         padding: 4,
-//         borderRadius: 4,
-//         mt: 4,
-//         boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
-//       }}
-//     >
-//       {/* Heading */}
-//       <Typography
-//         variant="h4"
-//         sx={{
-//           color: "var(--theme-color)",
-//           fontWeight: 700,
-//           textAlign: "center",
-//           mb: 3,
-//           wordSpacing: "6px",
-//         }}
-//       >
-//         Welcome To Contact Page
-//       </Typography>
+//     <Box sx={{ background: "#FCE4EC", py: 6 }}>
+//       {/* Light Pink Background */}
+//       <Container maxWidth="lg" className="container">
 
-//       {/* Contact Details */}
-//       <Box sx={{ textAlign: "center", lineHeight: 2 }}>
-//         <Typography>
-//           <strong>Name:</strong> Sadhana Chaudhary
+//         <Typography
+//           variant="h4"
+//           sx={{
+//             color: "var(--theme-color)",
+//             fontWeight: 700,
+//             textAlign: "center",
+//             mb: 3
+//           }}
+//         >
+//           Welcome To Contact Page
 //         </Typography>
 
-//         <Typography>
-//           <strong>Email:</strong>{" "}
-//           <Link href="mailto:sadhana.chdry@gmail.com" underline="hover">
-//             sadhana.chdry@gmail.com
-//           </Link>
-//         </Typography>
+//         <Box sx={{ display: "flex", flexDirection: "column", gap: 1, textAlign: "center" }}>
+//           <Typography><strong>Name:</strong> Sadhana Chaudhary</Typography>
+//           <Typography>
+//             <strong>Email:</strong>{" "}
+//             <Link href="mailto:sadhana.chdry@gmail.com">sadhana.chdry@gmail.com</Link>
+//           </Typography>
+//           <Typography><strong>Phone:</strong> +91 9569786142</Typography>
+//         </Box>
 
-//         <Typography>
-//           <strong>Phone:</strong> +91 9569786142
-//         </Typography>
-//       </Box>
-//     </Container>
+//       </Container>
+//     </Box>
 //   );
 // }
 
-
 "use client";
-import { Container, Typography, Box, Link } from "@mui/material";
+
+import {
+  Container,
+  Typography,
+  Box,
+  Link,
+  TextField,
+  Button,
+} from "@mui/material";
+import { useState } from "react";
 
 export default function Contact() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleLogin = (e) => {
+    e.preventDefault(); // stops page refresh
+
+    if (!email || !password) {
+      alert("Please fill all fields");
+      return;
+    }
+
+    console.log("Logged In:", email, password);
+    alert("Login Successful!");
+  };
+
   return (
-    <Box sx={{ background: "#FCE4EC", py: 6 }}> 
-      {/* Light Pink Background */}
-      <Container maxWidth="lg" className="container">
-        
-        <Typography 
-          variant="h4" 
-          sx={{ 
-            color: "var(--theme-color)", 
+    <Box sx={{ background: "#FCE4EC", py: 6 }}>
+      <Container maxWidth="lg">
+        {/* Heading */}
+        <Typography
+          variant="h4"
+          sx={{
+            color: "var(--theme-color)",
             fontWeight: 700,
             textAlign: "center",
-            mb: 3 
+            mb: 3,
           }}
         >
           Welcome To Contact Page
         </Typography>
 
-        <Box sx={{ display: "flex", flexDirection: "column", gap: 1, textAlign: "center" }}>
-          <Typography><strong>Name:</strong> Sadhana Chaudhary</Typography>
+        {/* Contact Details */}
+        <Box sx={{ textAlign: "center", lineHeight: 1.8, mb: 4 }}>
           <Typography>
-            <strong>Email:</strong>{" "}
-            <Link href="mailto:sadhana.chdry@gmail.com">sadhana.chdry@gmail.com</Link>
+            <strong>Name:</strong> Sadhana Chaudhary
           </Typography>
-          <Typography><strong>Phone:</strong> +91 9569786142</Typography>
+          <Typography
+            sx={{
+              mr: -6,
+            }}
+          >
+            <strong>Email:</strong>{" "}
+            <Link href="mailto:sadhana.chdry@gmail.com">
+              sadhana.chdry@gmail.com
+            </Link>
+          </Typography>
+          <Typography  sx={{
+              mr: 5,
+            }}>
+            <strong>Phone:</strong> +91 9569786142
+          </Typography>
         </Box>
 
+        {/* Login Form */}
+        <Box
+          component="form"
+          onSubmit={handleLogin}
+          sx={{
+            maxWidth: "400px",
+            mx: "auto",
+            background: "white",
+            p: 3,
+            borderRadius: 3,
+            boxShadow: "0px 4px 12px rgba(0,0,0,0.15)",
+          }}
+        >
+          <Typography variant="h5" sx={{ mb: 2, textAlign: "center" }}>
+            Login
+          </Typography>
+
+          <TextField
+            label="Email"
+            size="small"
+            fullWidth
+            sx={{ mb: 2 }}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+
+          <TextField
+            label="Password"
+            type="password"
+            fullWidth
+            size="small"
+            sx={{ mb: 3 }}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+
+          <Button
+            variant="contained"
+            type="submit"
+            fullWidth
+            sx={{
+              background: "#a83269",
+              fontWeight: 600,
+              py: 1.2,
+              ":hover": { opacity: 0.9 },
+            }}
+          >
+            Login
+          </Button>
+        </Box>
       </Container>
     </Box>
   );

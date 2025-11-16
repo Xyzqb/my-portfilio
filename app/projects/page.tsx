@@ -16,9 +16,9 @@ export default function Projects() {
     >
       <Typography
         variant="h4"
-        sx={{ color: "var(--theme-color)", fontWeight: 700, mb: 2 }}
+        sx={{ color:"#a83269", fontWeight: 700, mb: 2 }}
       >
-        Projects
+        Projects Details
       </Typography>
 
       <Box
