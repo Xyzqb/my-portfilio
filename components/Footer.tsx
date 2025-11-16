@@ -1,6 +1,3 @@
-
-
-
 // "use client";
 // import { Box } from "@mui/material";
 // import { FaLinkedin, FaGithub } from "react-icons/fa";
@@ -102,13 +99,13 @@ export default function Footer() {
         {/* LEFT SIDE */}
         <div className="text-left font-bold leading-7 space-y-1">
           <p className="flex items-center gap-2">
-            <FaHome className="text-xl" /> Village: Saha
+            <FaHome className="text-xl" /> City: Guar City 1
           </p>
           <p className="flex items-center gap-2">
-            <FaMapMarkerAlt className="text-xl" /> Gorakhpur, Uttar Pradesh
+            <FaMapMarkerAlt className="text-xl" /> Greater Noida, Uttar Pradesh
           </p>
           <p className="flex items-center gap-2">
-            <FaPhoneAlt className="text-xl" /> 9569786142
+            <FaPhoneAlt className="text-xl" /> 9569786189
           </p>
         </div>
 
